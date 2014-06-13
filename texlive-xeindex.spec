@@ -6,7 +6,7 @@
 # catalog-version 0.2
 Name:		texlive-xeindex
 Version:	0.2
-Release:	6
+Release:	7
 Summary:	Automatic index generation for XeLaTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/xetex/latex/xeindex
