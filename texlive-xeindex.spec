@@ -1,6 +1,6 @@
 Name:		texlive-xeindex
 Version:	35756
-Release:	1
+Release:	2
 Summary:	Automatic index generation for XeLaTeX
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/xetex/latex/xeindex
