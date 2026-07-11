@@ -1,44 +1,23 @@
-Name:		texlive-xeindex
-Version:	35756
-Release:	2
+%global tl_name xeindex
+%global tl_revision 77682
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.3
+Release:	%{tl_revision}.1
 Summary:	Automatic index generation for XeLaTeX
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/xetex/latex/xeindex
-License:	LPPL
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/xeindex.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/xeindex.doc.r%{version}.tar.xz
+License:	lppl
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/xeindex.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/xeindex.doc.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-The package is based on XeSearch, and will automatically index
-words or phrases in an XeLaTeX document. Words are declared in
-a list, and every occurrence then creates an index entry whose
-content can be fully specified beforehand.
+The package is based on XeSearch, and will automatically index words or
+phrases in an XeLaTeX document. Words are declared in a list, and every
+occurrence then creates an index entry whose content can be fully
+specified beforehand.
 
-%post
-%{_sbindir}/texlive.post
-
-%postun
-if [ $1 -eq 0 ]; then
-	%{_sbindir}/texlive.post
-fi
-
-#-----------------------------------------------------------------------
-%files
-%{_texmfdistdir}/tex/xelatex/xeindex/xeindex.sty
-%doc %{_texmfdistdir}/doc/xelatex/xeindex/README
-%doc %{_texmfdistdir}/doc/xelatex/xeindex/xeindex.pdf
-%doc %{_texmfdistdir}/doc/xelatex/xeindex/xeindex.tex
-
-#-----------------------------------------------------------------------
-%prep
-%autosetup -p1 -c -a1
-
-%build
-
-%install
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -fpar tex doc %{buildroot}%{_texmfdistdir}
